@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="/Styles/registerPage.css">
+</head>
+<body class="Body">
+  <div class="container">
+    <form action="/register" th:method="POST" th:object = "${user}">
+      <p>Пожалуйста, зарегистрируйтесь</p>
+      <input type="hidden" th:name = "${_csrf.parameterName}" th:value = "${_csrf.token}">
+      <input type="text" id="username" th:field = "*{name}" placeholder="Имя Пользователя" required><br>
+      <div class="error-message" style="color: red" th:if = "${#fields.hasErrors('name')}" th:errors = "*{name}"> Name error</div>
+      <input type="password" id="password" th:field = "*{user_password}" placeholder="Пароль" required><br>
+      <div class="error-message" style="color: red" th:if = "${#fields.hasErrors('user_password')}" th:errors = "*{user_password}"> Name error</div>
+      <button type="submit" value="Sign in">Sign in</button><br>
+
+    </form>
+    <div th:if="${param.error}">
+      <p style="color: red;">Пользователь с таким именем уже существует. Выберите другое имя пользователя.</p>
+    </div>
+
+    <div class="drops">
+      <div class="drop drop-1"></div>
+      <div class="drop drop-2"></div>
+      <div class="drop drop-3"></div>
+      <div class="drop drop-4"></div>
+      <div class="drop drop-5"></div>
+    </div>
+  </div>
+</body>
+</html>

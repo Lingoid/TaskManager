@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="/Styles/registerPage.css">
+</head>
+<body class="Body">
+  <div class="container">
+    <form action="/process_login" method="post">
+      <p>Подтвердите свою личность</p>
+      <input type="hidden" th:name = "${_csrf.parameterName}" th:value = "${_csrf.token}">
+      <input type="text" id="username" name="username" placeholder="Имя Пользователя" required><br>
+      <input type="password" id="password" name="password" placeholder="Пароль" required><br>
+      <button type="submit" value="Log in">Log in</button><br>
+
+      <div th:if="${param.error}">
+        <p style="color: red;">Неверное имя пользователя или пароль</p>
+      </div>
+    </form>
+
+    <div class="drops">
+      <div class="drop drop-1"></div>
+      <div class="drop drop-2"></div>
+      <div class="drop drop-3"></div>
+      <div class="drop drop-4"></div>
+      <div class="drop drop-5"></div>
+    </div>
+  </div>
+</body>
+</html>

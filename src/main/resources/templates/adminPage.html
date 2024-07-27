@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>adminPage</title>
+</head>
+<body>
+  Admin
+
+  <div>
+      <h1>That's all Users</h1>
+      <ul>
+          <li th:each = "user : ${users}">
+              <span th:text = "${user.toString()}"></span>
+              <a th:href="'/delete/' + ${user.id}" class="delete-button">Удалить</a>
+          </li>
+      </ul>
+  </div>
+</body>
+</html>
